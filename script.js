@@ -1,8 +1,9 @@
-const min = 0;
-const max = 100;
-const down = "Ваше число меньше загаданного! Введите число еще раз!";
-const up = "Ваше число больше загаданного! Введите число еще раз!";
-let randomNumber = getRandomIntInclusive(min, max);
+const minValueInDiaposon = 0;
+const maxValueInDiaposon = 100;
+const messageForLowValue = "Ваше число меньше загаданного! Введите число еще раз!";
+const messageForHighValue = "Ваше число больше загаданного! Введите число еще раз!";
+
+let randomNumber = getRandomIntInclusive(minValueInDiaposon, maxValueInDiaposon);
 console.log(randomNumber);
 
 function getRandomIntInclusive(min, max) {
@@ -30,7 +31,7 @@ for (let i = 1; i < 11; i++)
         if (!isNumeric(guessNumber)) {
             alert("Вы ввели не число! Введите еще раз число");
         } else {
-            guessNumber > randomNumber ? alert(up): alert(down);
+            guessNumber > randomNumber ? alert(messageForHighValue): alert(messageForLowValue);
             }
             ;
         }
