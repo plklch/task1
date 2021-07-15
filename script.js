@@ -11,7 +11,7 @@ function getRandomIntInclusive(min, max) {
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min + 1)) + min; //Максимум и минимум включаются
 }
-
+//
 
 function isNumeric(num){
     return !isNaN(num)
