@@ -1,9 +1,9 @@
-const minValueInDiaposon = 0;
-const maxValueInDiaposon = 100;
-const messageForLowValue = "Ваше число меньше загаданного! Введите число еще раз!";
-const messageForHighValue = "Ваше число больше загаданного! Введите число еще раз!";
+const MIN_VALUE_IN_DIAPOSON = 0;
+const MAX_VALUE_IN_DIAPOSON = 100;
+const MESSAGE_FOR_LOW_VALUE = "Ваше число меньше загаданного! Введите число еще раз!";
+const MESSAGE_FOR_HIGH_VALUE = "Ваше число больше загаданного! Введите число еще раз!";
 
-let randomNumber = getRandomIntInclusive(minValueInDiaposon, maxValueInDiaposon);
+let randomNumber = getRandomIntInclusive(MIN_VALUE_IN_DIAPOSON, MAX_VALUE_IN_DIAPOSON);
 console.log(randomNumber);
 
 function getRandomIntInclusive(min, max) {
@@ -11,7 +11,7 @@ function getRandomIntInclusive(min, max) {
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min + 1)) + min; //Максимум и минимум включаются
 }
-//
+
 
 function isNumeric(num){
     return !isNaN(num)
@@ -23,7 +23,11 @@ for (let i = 1; i < 11; i++)
 {
     console.log(i);
     guessNumber = prompt('Угадайте число!', "");
-    if (guessNumber == randomNumber){
+    if (guessNumber===null){
+        alert("Вы не захотели играть, пока-пока!");
+        break;
+    }
+    if (guessNumber === randomNumber){
         alert("Вы победили!");
         break;
     }
@@ -31,11 +35,10 @@ for (let i = 1; i < 11; i++)
         if (!isNumeric(guessNumber)) {
             alert("Вы ввели не число! Введите еще раз число");
         } else {
-            guessNumber > randomNumber ? alert(messageForHighValue): alert(messageForLowValue);
+            guessNumber > randomNumber ? alert(MESSAGE_FOR_HIGH_VALUE): alert(MESSAGE_FOR_LOW_VALUE);
             }
-            ;
         }
-    if (i == 10) alert("Попытки кончились! К сожалению, вы проиграли!");
+    if (i === 10) alert("Попытки кончились! К сожалению, вы проиграли!");
 }
 
 //комп число загадывает, человеку нужно угадать, количество попыток ограничено
